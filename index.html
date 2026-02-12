@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Surprise 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      width: 90%;
+      max-width: 350px;
+      margin: 80px auto;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: pop 1s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+
+    h1 {
+      color: #1e90ff;
+    }
+
+    img {
+      width: 200px;
+      border-radius: 15px;
+      margin: 15px 0;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      top: -10px;
+      font-size: 24px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Background music -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <h1>🎉 Congratulations, <span style="color:#ff69b4;">HER_NAME</span>! 🎉</h1>
+  <img src="photo.jpg" alt="Her photo">
+  <p>
+    This is a small surprise just for you 💙<br>
+    You did amazing — keep shining ✨
+  </p>
+</div>
+
+<!-- Confetti emojis -->
+<script>
+  const emojis = ["🎊","🎉","✨","💙","🌸"];
+  for (let i = 0; i < 30; i++) {
+    let confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.animationDuration = (3 + Math.random() * 5) + "s";
+    document.body.appendChild(confetti);
+  }
+</script>
+
+</body>
+</html>
